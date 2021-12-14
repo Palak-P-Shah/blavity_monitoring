@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 import time
 
-url_blavity = "https://blavity.com/"
+url_afrotech = "https://afrotech.com/"
 BROWSERSTACK_USERNAME = 'palakshah_rcAxD5'
 BROWSERSTACK_ACCESS_KEY = 's2rqmyxFs8r999bzvGXJ'
 desired_cap = {
@@ -13,9 +13,9 @@ desired_cap = {
  'browser': 'Chrome',
  'browser_version': 'latest',
  'os': 'Windows',
- 'build_name': 'BStack-[Python] Monitoring Test for blavity.com',  # test name
- 'name': 'BStack-[Python] Monitoring Test for blavity.com',  # test name
- 'build': 'BStack Build Number'  # CI/CD job or build name
+ 'build_name': 'BStack-[Python] Monitoring Test for afrotech.com', # test name
+ 'name': 'BStack-[Python] Monitoring Test for afrotech.com', # test name
+ 'build': 'BStack Build Number' # CI/CD job or build name
 }
 desired_cap['browserstack.debug'] = True
 driver = webdriver.Remote(
@@ -30,27 +30,36 @@ def environment(url):
     print(driver.title)
 
 
-def page_load_blavity():
+def page_load_afrotech():
     try:
-        WebDriverWait(driver, 40).until(ec.title_is("The Community for Black Creativity and News - Blavity News"))
+        WebDriverWait(driver, 40).until(ec.title_is("AfroTech"))
     except TimeoutException:
         driver.execute_script(
           'browserstack_executor: {"action": "setSessionStatus", "arguments": '
-          '{"status":"failed", "reason": for blavity.com, took too long but no response, checking title"}}')
+          '{"status":"failed", "reason": "for Afrotech, took too long but no response, checking title"}}')
         driver.quit()
-    if driver.current_url == url_blavity:
-        print("inside url do match for blavity.com")
+    if driver.title == "AfroTech":
         driver.execute_script(
           'browserstack_executor: {"action": "setSessionStatus", "arguments": '
-          '{"status":"passed", "reason": "url matched! for blavity"}}')
+          '{"status":"passed", "reason": "Title matched! for Afrotech"}}')
     else:
-        print("inside url does not match for blavity.com")
         driver.execute_script(
           'browserstack_executor: {"action": "setSessionStatus", "arguments": '
-          '{"status":"failed", "reason": "url did not matched! for blavity"}}')
+          '{"status":"failed", "reason": "Title did not matched! for Afrotech"}}')
         driver.quit()
+    print("title do match for afrotech")
+    if driver.current_url == url_afrotech:
+        driver.execute_script(
+          'browserstack_executor: {"action": "setSessionStatus", "arguments": '
+          '{"status":"passed", "reason": "url matched! for Afrotech"}}')
+    else:
+        driver.execute_script(
+          'browserstack_executor: {"action": "setSessionStatus", "arguments": '
+          '{"status":"failed", "reason": "url did not matched! for Afrotech"}}')
+        driver.quit()
+    print("url do match for afrotech")
 
 
-environment(url_blavity)
-page_load_blavity()
+environment(url_afrotech)
+page_load_afrotech()
 driver.quit()
