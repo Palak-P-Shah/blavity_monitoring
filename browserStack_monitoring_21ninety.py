@@ -14,13 +14,10 @@ desired_cap = {
  'browser': 'Chrome',
  'browser_version': 'latest',
  'os': 'Windows',
-<<<<<<< HEAD
  'build_name': 'BStack-[Python] Monitoring Test for 21ninenty.com',  # test name
  'name': 'BStack-[Python] Monitoring Test for 21ninenty.com',  # test name
-=======
  'build_name': 'BStack-[Python] Monitoring Test for 21ninety.com',  # test name
  'name': 'BStack-[Python] Monitoring Test for 21ninety.com',  # test name
->>>>>>> 5f2f9f2 (21ninety)
  'build': 'BStack Build Number'  # CI/CD job or build name
 }
 desired_cap['browserstack.debug'] = True
@@ -54,71 +51,6 @@ def page_load_21ninety():
           '{"status":"failed", "reason": "Url did not matched! for 21ninety"}}')
         driver.quit()
     print("url do match for 21ninety")
-
-
-def login_and_logout():
-    print("inside function login and logout")
-    write_story = driver.find_element(By.XPATH, "//a[normalize-space()='SUBMIT A STORY']")
-    write_story.click()
-    WebDriverWait(driver, 40).until(ec.presence_of_element_located((
-      By.XPATH, "//h2[normalize-space()='Login']")))
-    email = driver.find_element(By.XPATH, "//input[@placeholder='Email']")
-    email.send_keys("fortestpurposesonly5@gmail.com")
-    psswd = driver.find_element(By.XPATH, "//input[@placeholder='Password']")
-    psswd.send_keys("test22pass")
-    submit = driver.find_element(By.XPATH, "//button[normalize-space()='Submit']")
-    submit.click()
-    WebDriverWait(driver, 40).until(ec.url_matches("https://legacy.21ninety.com/"))
-    try:
-        accept = driver.find_element(By.XPATH, "//a[normalize-space()='Accept']")
-        accept.click()
-    except NoSuchElementException:
-        print("pop-up does not exist")
-    WebDriverWait(driver, 40).until(ec.presence_of_element_located((
-      By.XPATH, "//a[normalize-space()='Sign out']")))
-    sign_out = driver.find_element(By.XPATH, "//a[normalize-space()='Sign out']")
-    sign_out.click()
-    WebDriverWait(driver, 40).until(ec.presence_of_element_located((
-      By.XPATH, "//h1[normalize-space()='THE LATEST']")))
-
-
-<<<<<<< HEAD
-def post_page_load_pop_up(url):
-    try:
-        event_promo_pop_up = driver.find_element_by_xpath(
-          "//div[@class='ub-emb-iframe-wrapper ub-emb-visible']//button[@type='button'][normalize-space()='×']")
-        driver.execute_script("arguments[0].click();", event_promo_pop_up)
-    except NoSuchElementException:
-        print("event promo pop-up does not exist")
-    print("inside function post_page_load_pop_up with url as , ", url)
-    if driver.title == "21Ninety":
-        driver.execute_script(
-          'browserstack_executor: {"action": "setSessionStatus", "arguments": '
-          '{"status":"passed", "reason": "Title matched! for 21ninety"}}')
-    else:
-        driver.execute_script(
-          'browserstack_executor: {"action": "setSessionStatus", "arguments": '
-          '{"status":"failed", "reason": "Title did not matched! for 21ninety"}}')
-        driver.quit()
-=======
-# def post_page_load_pop_up(url):
-#     try:
-#         # event_promo_pop_up = driver.find_element_by_xpath(
-#         #   "//div[@class='ub-emb-iframe-wrapper ub-emb-visible']//button[@type='button'][normalize-space()='×']")
-#         driver.execute_script("arguments[0].click();", event_promo_pop_up)
-#     except NoSuchElementException:
-#         print("event promo pop-up does not exist")
-#     print("inside function post_page_load_pop_up with url as , ", url)
-#     if driver.title == "21Ninety":
-#         driver.execute_script(
-#           'browserstack_executor: {"action": "setSessionStatus", "arguments": '
-#           '{"status":"passed", "reason": "Title matched! for 21ninety"}}')
-#     else:
-#         driver.execute_script(
-#           'browserstack_executor: {"action": "setSessionStatus", "arguments": '
-#           '{"status":"failed", "reason": "Title did not matched! for 21ninety"}}')
-#         driver.quit()
->>>>>>> 5f2f9f2 (21ninety)
 
 
 environment(url_21ninety)
