@@ -12,7 +12,7 @@ desired_cap = {
  'resolution': '1920x1080',
  'browser': 'Chrome',
  'browser_version': 'latest',
- 'os': 'Windows',
+ 'os': 'Linux',
  'build_name': 'BStack-[Python] Monitoring Test for blavity.com',  # test name
  'name': 'BStack-[Python] Monitoring Test for blavity.com',  # test name
  'build': 'BStack Build Number'  # CI/CD job or build name
