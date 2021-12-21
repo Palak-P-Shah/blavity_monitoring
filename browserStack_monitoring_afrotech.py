@@ -9,12 +9,10 @@ BROWSERSTACK_USERNAME = 'palakshah_rcAxD5'
 BROWSERSTACK_ACCESS_KEY = 's2rqmyxFs8r999bzvGXJ'
 desired_cap = {
  'os_version': '10',
- # 'resolution': '1920x1080',
- 'browser': 'Safari',
+ 'resolution': '1920x1080',
+ 'browser': 'Chrome',
  'browser_version': 'latest',
- 'os': 'iOS',
-  'os_version': '13',
- 'device': 'iPhone 11 Pro',
+ 'os': 'Windows',
  'build_name': 'BStack-[Python] Monitoring Test for afrotech.com', # test name
  'name': 'BStack-[Python] Monitoring Test for afrotech.com', # test name
  'build': 'BStack Build Number' # CI/CD job or build name
