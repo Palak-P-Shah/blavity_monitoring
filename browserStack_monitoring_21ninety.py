@@ -14,8 +14,13 @@ desired_cap = {
  'browser': 'Chrome',
  'browser_version': 'latest',
  'os': 'Windows',
+<<<<<<< HEAD
  'build_name': 'BStack-[Python] Monitoring Test for 21ninenty.com',  # test name
  'name': 'BStack-[Python] Monitoring Test for 21ninenty.com',  # test name
+=======
+ 'build_name': 'BStack-[Python] Monitoring Test for 21ninety.com',  # test name
+ 'name': 'BStack-[Python] Monitoring Test for 21ninety.com',  # test name
+>>>>>>> 5f2f9f2 (21ninety)
  'build': 'BStack Build Number'  # CI/CD job or build name
 }
 desired_cap['browserstack.debug'] = True
@@ -77,6 +82,7 @@ def login_and_logout():
       By.XPATH, "//h1[normalize-space()='THE LATEST']")))
 
 
+<<<<<<< HEAD
 def post_page_load_pop_up(url):
     try:
         event_promo_pop_up = driver.find_element_by_xpath(
@@ -94,6 +100,25 @@ def post_page_load_pop_up(url):
           'browserstack_executor: {"action": "setSessionStatus", "arguments": '
           '{"status":"failed", "reason": "Title did not matched! for 21ninety"}}')
         driver.quit()
+=======
+# def post_page_load_pop_up(url):
+#     try:
+#         # event_promo_pop_up = driver.find_element_by_xpath(
+#         #   "//div[@class='ub-emb-iframe-wrapper ub-emb-visible']//button[@type='button'][normalize-space()='×']")
+#         driver.execute_script("arguments[0].click();", event_promo_pop_up)
+#     except NoSuchElementException:
+#         print("event promo pop-up does not exist")
+#     print("inside function post_page_load_pop_up with url as , ", url)
+#     if driver.title == "21Ninety":
+#         driver.execute_script(
+#           'browserstack_executor: {"action": "setSessionStatus", "arguments": '
+#           '{"status":"passed", "reason": "Title matched! for 21ninety"}}')
+#     else:
+#         driver.execute_script(
+#           'browserstack_executor: {"action": "setSessionStatus", "arguments": '
+#           '{"status":"failed", "reason": "Title did not matched! for 21ninety"}}')
+#         driver.quit()
+>>>>>>> 5f2f9f2 (21ninety)
 
 
 environment(url_21ninety)
